@@ -2,6 +2,9 @@
 #include <flutter/method-channel.h>
 #include <sys/utsname.h>
 
+#include "intent/intent_default.h"
+#include "invoke_manager/invoke_manager.h"
+
 void UrlLauncherAuroraPlugin::RegisterWithRegistrar(PluginRegistrar &registrar)
 {
     registrar.RegisterMethodChannel("url_launcher_aurora",
@@ -14,7 +17,6 @@ void UrlLauncherAuroraPlugin::onMethodCall(const MethodCall &call)
     const auto &method = call.GetMethod();
 
     if (method == "launchUrl") {
-        std::cout <<"FOOBAR TEST SUCCESSED";
         onLaunchUrl(call);
         return;
     }
@@ -24,16 +26,15 @@ void UrlLauncherAuroraPlugin::onMethodCall(const MethodCall &call)
 
 void UrlLauncherAuroraPlugin::onLaunchUrl(const MethodCall &call)
 {
-    utsname uname_data{};
-    uname(&uname_data);
+    Invoker::InvokeManager::instance().init();
+    Intent::IntentDefault::registerQmlType();
 
     auto url = call.GetArgument<Encodable::String>("url");
-    std::cout <<url;
+    QString sUrl = QString::fromStdString(url);
+    Intent::IntentDefault intent;
+    intent.invokeOpenURI(sUrl);
 
-    std::string preamble = "Aurora (Linux): ";
-    std::string version = preamble + "FOOBAR" + url;
-
-    call.SendSuccessResponse(version);
+    call.SendSuccessResponse(nullptr);
 }
 
 void UrlLauncherAuroraPlugin::unimplemented(const MethodCall &call)
