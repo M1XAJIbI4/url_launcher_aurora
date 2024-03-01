@@ -25,16 +25,13 @@ class _MyAppState extends State<MyApp> {
     initPlatformState();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
     String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
     try {
       platformVersion =
-          await _urlLauncherAuroraPlugin.getPlatformVersion() ?? 'Unknown platform version';
+          await _urlLauncherAuroraPlugin.launchUrl('https://google.com') ?? 'Unknown platform version';
     } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
+      platformVersion = 'Failed to laucn url.';
     }
 
     // If the widget was removed from the tree while the asynchronous platform

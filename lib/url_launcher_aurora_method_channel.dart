@@ -10,11 +10,11 @@ class MethodChannelUrlLauncherAurora extends UrlLauncherAuroraPlatform {
   final methodChannel = const MethodChannel('url_launcher_aurora');
 
   @override
-  Future<String?> getPlatformVersion(String url) async {
-    final version = await methodChannel.invokeMethod<String>(
-      'getPlatformVersion',
+  Future<String?> launchUrl(String url) async {
+    final result = await methodChannel.invokeMethod<String>(
+      'launchUrl',
       <String, Object>{"url": url}
     );
-    return version;
+    return result;
   }
 }

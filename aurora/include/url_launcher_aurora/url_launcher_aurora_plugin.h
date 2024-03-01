@@ -11,7 +11,7 @@ public:
 
 private:
     void onMethodCall(const MethodCall &call);
-    void onGetPlatformVersion(const MethodCall &call);
+    void onLaunchUrl(const MethodCall &call);
     void unimplemented(const MethodCall &call);
 };
 

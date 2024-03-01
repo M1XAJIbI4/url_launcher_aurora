@@ -13,21 +13,25 @@ void UrlLauncherAuroraPlugin::onMethodCall(const MethodCall &call)
 {
     const auto &method = call.GetMethod();
 
-    if (method == "getPlatformVersion") {
-        onGetPlatformVersion(call);
+    if (method == "launchUrl") {
+        std::cout <<"FOOBAR TEST SUCCESSED";
+        onLaunchUrl(call);
         return;
     }
 
     unimplemented(call);
 }
 
-void UrlLauncherAuroraPlugin::onGetPlatformVersion(const MethodCall &call)
+void UrlLauncherAuroraPlugin::onLaunchUrl(const MethodCall &call)
 {
     utsname uname_data{};
     uname(&uname_data);
 
+    auto url = call.GetArgument<Encodable::String>("url");
+    std::cout <<url;
+
     std::string preamble = "Aurora (Linux): ";
-    std::string version = preamble + uname_data.version;
+    std::string version = preamble + "FOOBAR" + url;
 
     call.SendSuccessResponse(version);
 }

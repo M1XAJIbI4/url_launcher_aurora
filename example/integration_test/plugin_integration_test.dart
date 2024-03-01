@@ -15,11 +15,9 @@ import 'package:url_launcher_aurora/url_launcher_aurora.dart';
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('getPlatformVersion test', (WidgetTester tester) async {
+  testWidgets('onLauncUrl test', (WidgetTester tester) async {
     final UrlLauncherAurora plugin = UrlLauncherAurora();
-    final String? version = await plugin.getPlatformVersion();
-    // The version string depends on the host platform running the test, so
-    // just assert that some non-empty string is returned.
+    final String? version = await plugin.onLaunchUrl('Test');
     expect(version?.isNotEmpty, true);
   });
 }
