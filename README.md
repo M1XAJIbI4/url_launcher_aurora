@@ -1,15 +1,32 @@
 # url_launcher_aurora
 
-A new Flutter plugin project.
+The Aurora implementation of [url_launcher] (https://pub.dev/packages/url_launcher)
 
-## Getting Started
+## Usage
+This package is not an _endorsed_ implementation of 'url_launcher'.
+Therefore, you have to include 'url_launcher_aurora' alongside 'url_launcher' as dependencies in your 'pubspec.yaml' file.
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+***.desktop**
 
+'''desktop
+Permissions=Internet
+'''
+
+***.spec
+
+'''spec
+BuildRequires: pkgconfig(runtime-manager-qt5)
+'''
+
+**pubspec.yaml**
+
+'''yaml
+dependencies:
+    url_launcher: ^6.0.2
+    url_launcher_aurora:
+        git:
+            url: <!-- Add url -->
+            ref: <!-- Add ref -->
+            path: <!-- Add path -->
+'''
