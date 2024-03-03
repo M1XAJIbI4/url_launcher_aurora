@@ -1,0 +1,12 @@
+# Visual Studio code related
+.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api
+.dart_tool/
+.flutter_plugins
+.flutter_plugins_dependencies
+.packages
+.pub-cache/
+.pub/
+build/

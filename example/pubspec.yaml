@@ -17,6 +17,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  url_launcher: ^6.0.2
   url_launcher_aurora:
     # When depending on this package from a real application you should use:
     #   url_launcher_aurora: ^x.y.z

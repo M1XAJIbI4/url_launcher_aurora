@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:url_launcher_aurora/url_launcher_aurora.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
-  final _urlLauncherAuroraPlugin = UrlLauncherAurora();
 
   @override
   void initState() {
@@ -28,8 +27,8 @@ class _MyAppState extends State<MyApp> {
   Future<void> initPlatformState() async {
     String platformVersion;
     try {
-      platformVersion =
-          await _urlLauncherAuroraPlugin.launchUrl('https://google.com') ?? 'Unknown platform version';
+      platformVersion = '1214';
+          await launchUrl(Uri.parse('https://google.com'));
     } on PlatformException {
       platformVersion = 'Failed to laucn url.';
     }

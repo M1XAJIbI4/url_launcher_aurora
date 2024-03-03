@@ -10,15 +10,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: ^2.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  url_launcher_platform_interface: ^2.2.0
 
 flutter:
   plugin:
+    implements: url_launcher
     platforms:
       aurora:
         pluginClass: UrlLauncherAuroraPlugin
+        dartPluginClass: UrlLauncherAurora
