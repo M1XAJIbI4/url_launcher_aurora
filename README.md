@@ -1,6 +1,9 @@
 # url_launcher_aurora
 
 The Aurora implementation of [url_launcher] (https://pub.dev/packages/url_launcher)
+|             | Aurora | 
+|-------------|--------|
+| **Support** |   5.0  | 
 
 ## Usage
 This package is not an _endorsed_ implementation of 'url_launcher'.
@@ -22,11 +25,12 @@ BuildRequires: pkgconfig(runtime-manager-qt5)
 **pubspec.yaml**
 
 '''yaml
-dependencies:
-    url_launcher: ^6.0.2
-    url_launcher_aurora:
-        git:
-            url: <!-- Add url -->
-            ref: <!-- Add ref -->
-            path: <!-- Add path -->
+
+    dependencies: 
+        url_launcher: ^6.0.2 
+        url_launcher_aurora: 
+            git: 
+                url: <!-- Add url --> 
+                ref: <!-- Add ref --> 
+                path: <!-- Add path --> 
 '''
